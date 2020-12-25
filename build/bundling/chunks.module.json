@@ -1,0 +1,81 @@
+{
+  "errors": [],
+  "warnings": [],
+  "version": "4.44.2",
+  "hash": "acf70e69f1c0551ff6fb",
+  "publicPath": "/static/",
+  "outputPath": "D:\\DEV\\WWW\\puzzleblog-frontend\\build\\static",
+  "assetsByChunkName": {
+    "list": "list.module.js",
+    "puzzleblog": "puzzleblog.module.js"
+  },
+  "assets": [
+    {
+      "name": "list.module.js",
+      "size": 47841,
+      "chunks": [
+        "list"
+      ],
+      "chunkNames": [
+        "list"
+      ],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "puzzleblog.module.js",
+      "size": 5267773,
+      "chunks": [
+        "puzzleblog"
+      ],
+      "chunkNames": [
+        "puzzleblog"
+      ],
+      "info": {},
+      "emitted": false
+    }
+  ],
+  "filteredAssets": 0,
+  "entrypoints": {
+    "puzzleblog": {
+      "chunks": [
+        "puzzleblog"
+      ],
+      "assets": [
+        "puzzleblog.module.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "namedChunkGroups": {
+    "puzzleblog": {
+      "chunks": [
+        "puzzleblog"
+      ],
+      "assets": [
+        "puzzleblog.module.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "list": {
+      "chunks": [
+        "list"
+      ],
+      "assets": [
+        "list.module.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "logging": {
+    "webpack.buildChunkGraph.visitModules": {
+      "entries": [],
+      "filteredEntries": 5,
+      "debug": false
+    }
+  },
+  "children": []
+}
