@@ -1,10 +1,14 @@
-import FrontityURL from 'frontity/dist/src/utils/url';
-import { styled } from "frontity";
+import { styled, css } from "frontity";
 
 const Tile = styled.article`
   background-color: #ffffff;
   box-shadow: 0px 0px 11px 2px rgba(0,0,0,0.35);
   margin-bottom: 36px;
+
+  ${({ post }) => post && css`
+          padding: 24px
+            `}
+            
 `;
 
 export default Tile;
