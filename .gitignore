@@ -1,2 +1,8 @@
 node_modules
 build
+build/server.js
+build/analyze/module-development.html
+build/analyze/server-development.html
+build/bundling/chunks.module.json
+build/static/list.module.js
+build/static/puzzleblog.module.js
