@@ -71,7 +71,7 @@ const Item = ({ state, item }) => {
 export default connect(Item);
 
 const Tile = styled.article`
-  background-color: #ffffff99;
+  background-color: #ffffff;
   box-shadow: 0px 0px 11px 2px rgba(0,0,0,0.35);
   margin-bottom: 36px;
 `;
