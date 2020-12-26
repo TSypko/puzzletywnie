@@ -20,7 +20,7 @@ const Item = ({ state, item }) => {
   const weekday = (date.toLocaleDateString(undefined, { weekday: "long" }))
 
   return (
-    <article>
+    <Tile>
       <Link link={item.link}>
         <Title dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
       </Link>
@@ -59,20 +59,26 @@ const Item = ({ state, item }) => {
       <p>
         {category.map(id => categories[id].name)}
       </p>
-    </article>
+    </Tile>
   );
 };
 
 // Connect the Item to gain access to `state` as a prop
 export default connect(Item);
 
-const Title = styled.h1`
+const Title = styled.h2`
   font-size: 2rem;
   color: rgba(12, 17, 43);
   margin: 0;
   padding-top: 24px;
   padding-bottom: 8px;
-  box-sizing: border-box;
+`;
+
+const Tile = styled.article`
+  background-color: #ffffff99;
+  padding: 24px;
+  margin: 24px 0;
+  box-shadow: 0px 0px 11px 2px rgba(0,0,0,0.35);
 `;
 
 const AuthorName = styled.span`
