@@ -2,6 +2,7 @@ import React from "react";
 import { connect, styled } from "frontity";
 import Link from "../link";
 import FeaturedMedia from "../featured-media";
+import Tile from "../tile";
 
 /**
  * Item Component
@@ -69,12 +70,6 @@ const Item = ({ state, item }) => {
 
 // Connect the Item to gain access to `state` as a prop
 export default connect(Item);
-
-const Tile = styled.article`
-  background-color: #ffffff;
-  box-shadow: 0px 0px 11px 2px rgba(0,0,0,0.35);
-  margin-bottom: 36px;
-`;
 
 const ItemContent = styled.div`
    padding: 0 24px 12px;
