@@ -21,11 +21,16 @@ const Item = ({ state, item }) => {
 
   return (
     <Tile>
+        {state.theme.featured.showOnList && (
+        <FeaturedMedia id={item.featured_media} />
+      )}
+      <ItemContent>
       <Link link={item.link}>
         <Title dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
       </Link>
 
       <div>
+    
         {/* If the post has an author, we render a clickable author text. */}
         {author && (
           <StyledLink link={author.link}>
@@ -48,9 +53,7 @@ const Item = ({ state, item }) => {
        * If the want to show featured media in the
        * list of featured posts, we render the media.
        */}
-      {state.theme.featured.showOnList && (
-        <FeaturedMedia id={item.featured_media} />
-      )}
+     
 
       {/* If the post has an excerpt (short summary text), we render it */}
       {item.excerpt && (
@@ -59,12 +62,23 @@ const Item = ({ state, item }) => {
       <p>
         {category.map(id => categories[id].name)}
       </p>
+      </ItemContent>
     </Tile>
   );
 };
 
 // Connect the Item to gain access to `state` as a prop
 export default connect(Item);
+
+const Tile = styled.article`
+  background-color: #ffffff99;
+  box-shadow: 0px 0px 11px 2px rgba(0,0,0,0.35);
+  margin-bottom: 36px;
+`;
+
+const ItemContent = styled.div`
+   padding: 0 24px 12px;
+`;
 
 const Title = styled.h2`
   font-size: 2rem;
@@ -74,12 +88,6 @@ const Title = styled.h2`
   padding-bottom: 8px;
 `;
 
-const Tile = styled.article`
-  background-color: #ffffff99;
-  padding: 24px;
-  margin: 24px 0;
-  box-shadow: 0px 0px 11px 2px rgba(0,0,0,0.35);
-`;
 
 const AuthorName = styled.span`
   color: rgba(12, 17, 43, 0.9);
