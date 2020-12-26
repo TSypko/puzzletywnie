@@ -20,23 +20,21 @@ const Pagination = ({ state, actions }) => {
   }, []);
 
   return (
-    <div>
+    <PaginationContainer>
       {/* If there's a next page, render this link */}
       {next && (
         <Link link={next}>
-          <Text>← Older posts</Text>
+          <Text>← Starsze wpisy (Strona {parseInt(next.substring(6, next.length), 10)})</Text>
         </Link>
       )}
-
-      {previous && next && " - "}
 
       {/* If there's a previous page, render this link */}
       {previous && (
         <Link link={previous}>
-          <Text>Newer posts →</Text>
+          <Text>Nowsze wpisy {previous === "/" ? "(Strona 1)" : `Strona (${parseInt(previous.substring(6, previous.length), 10)})`} →</Text>
         </Link>
       )}
-    </div>
+    </PaginationContainer>
   );
 };
 
@@ -45,6 +43,11 @@ const Pagination = ({ state, actions }) => {
  * `state`, `actions`, `libraries` via props
  */
 export default connect(Pagination);
+
+const PaginationContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
 
 const Text = styled.em`
   display: inline-block;
