@@ -43,8 +43,9 @@ const Container = styled.div`
 const Title = styled.h1`
   margin: 0;
   font-size: 32px;
+  font-family: 'Poppins', sans-serif;
 
-  @media (max-width: 360px) {
+  @media (max-width: 380px) {
         font-size: 20px;
     }
 `;
@@ -53,7 +54,7 @@ const Image = styled.img`
   width: 48px;
   margin: 6px 12px;
 
-  @media (max-width: 360px) {
+  @media (max-width: 380px) {
     width: 36px;
     margin: 4px 8px;
 
