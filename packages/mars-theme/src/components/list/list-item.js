@@ -14,6 +14,10 @@ import FeaturedMedia from "../featured-media";
 const Item = ({ state, item }) => {
   const author = state.source.author[item.author];
   const date = new Date(item.date);
+  const categories = state.source.category;
+  const category = Array.from(item.categories);
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const weekday = (date.toLocaleDateString(undefined, { weekday: "long" }))
 
   return (
     <article>
@@ -26,14 +30,18 @@ const Item = ({ state, item }) => {
         {author && (
           <StyledLink link={author.link}>
             <AuthorName>
-              By <b>{author.name}</b>
+              przez <b>{author.name}</b>
             </AuthorName>
           </StyledLink>
         )}
         <PublishDate>
           {" "}
-          on <b>{date.toDateString()}</b>
+          {weekday === "wtorek"
+            ? "we"
+            : "w"}
+          {" "}<b>{date.toLocaleDateString(undefined, options)}</b>
         </PublishDate>
+
       </div>
 
       {/*
@@ -48,6 +56,9 @@ const Item = ({ state, item }) => {
       {item.excerpt && (
         <Excerpt dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }} />
       )}
+      <p>
+        {category.map(id => categories[id].name)}
+      </p>
     </article>
   );
 };
