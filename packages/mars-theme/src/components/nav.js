@@ -55,6 +55,22 @@ const NavItem = styled.div`
     &[aria-current="page"] {
       border-bottom-color: #fff;
     }
+
+    &::after {
+        content: "";
+        display: block;
+        width: 0;
+        transition: width .3s;
+        color: #1C7BB0;
+    }
+
+    &:hover::after {
+        width: 100%;
+        color: #FFF;
+        margin-bottom: -2px;
+        border-bottom: 2px solid white;
+        color: #1C7BB0;
+    }
   }
 
   &:first-of-type {
