@@ -73,10 +73,10 @@ const Container = styled.div`
   width: 1000px;
   margin: 0;
   padding: 24px;
-  height: calc(100vh - 132px);
+  min-height: calc(100vh - 132px);
 
-  @media screen and (max-width: 560px) {
-    height: calc(100vh - 116px);
+  @media (max-width: 560px) {
+    min-height: calc(100vh - 116px);
   }
 `;
 
@@ -86,7 +86,7 @@ const Title = styled.h2`
   margin-bottom: 8px;
   color: rgba(12, 17, 43);
 
-  @media screen and (max-width: 560px) {
+  @media (max-width: 560px) {
     font-size: 24px;
   }
 `;
