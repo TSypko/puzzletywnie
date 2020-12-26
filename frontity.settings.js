@@ -2,9 +2,9 @@ const settings = {
   "name": "puzzleblog",
   "state": {
     "frontity": {
-      "url": "https://test.frontity.org",
-      "title": "Test Frontity Blog",
-      "description": "WordPress installation for Frontity development"
+      "url": "http://puzzleblog.local/",
+      "title": "Blue Puzzle Blog",
+      "description": "Blog dla fanów puzzli"
     }
   },
   "packages": [
@@ -18,24 +18,16 @@ const settings = {
               "/"
             ],
             [
-              "Nature",
-              "/category/nature/"
+              "O mnie",
+              "/o-mnie/"
             ],
             [
-              "Travel",
-              "/category/travel/"
+              "Kontakt",
+              "/kontakt/"
             ],
-            [
-              "Japan",
-              "/tag/japan/"
-            ],
-            [
-              "About Us",
-              "/about-us/"
-            ]
           ],
           "featured": {
-            "showOnList": false,
+            "showOnList": true,
             "showOnPost": false
           }
         }
@@ -45,7 +37,10 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "url": "https://test.frontity.org"
+          "url": "http://puzzleblog.local/",
+          "params": {
+            "per_page": 5
+          },
         }
       }
     },
