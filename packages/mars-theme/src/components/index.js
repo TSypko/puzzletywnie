@@ -41,7 +41,7 @@ const Theme = ({ state }) => {
       {/* Add the main section. It renders a different component depending
       on the type of URL we are in. */}
       <HeroContainer>
-        <Hero when={data.isArchive}/>
+        <Hero />
       </HeroContainer>
       <Main>
 
