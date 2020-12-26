@@ -26,13 +26,11 @@ function MobileMenu({ state, actions }) {
 }
 
 const MenuToggle = styled.button`
-  position: absolute;
-  right: 24px;
-  top: 24px;
+  margin-right: 12px;
+  margin-left: 0px;
   background: transparent;
   border: 0;
   color: white;
-  z-index: 5;
   height: 40px;
   width: 40px;
   display: none;
