@@ -7,7 +7,6 @@ import Post from "./post";
 import Loading from "./loading";
 import Title from "./title";
 import PageError from "./page-error";
-import Hero from "./hero";
 import heroImage from "../assets/heroImage.jpg";
 
 const Theme = ({ state }) => {
@@ -63,6 +62,8 @@ const HeadContainer = styled.div`
   flex-direction: column;
   background-color: #000;
   box-shadow: 0px 0px 7px 5px rgba(0,0,0);
+  z-index: 1;
+  overflow: hidden;
 `;
 
 const MainContainer = styled.section`
