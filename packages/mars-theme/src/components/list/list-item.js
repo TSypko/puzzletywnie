@@ -61,7 +61,9 @@ const Item = ({ state, item }) => {
         <Excerpt dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }} />
       )}
       <p>
-        {category.map(id => categories[id].name)}
+        {category.map(id => {
+
+          return <CategoryTile>{categories[id].name}</CategoryTile>})}
       </p>
       </ItemContent>
     </Tile>
@@ -99,6 +101,20 @@ const PublishDate = styled.span`
 `;
 
 const Excerpt = styled.div`
-  line-height: 1.6em;
+  line-height: 1.5;
   color: rgba(12, 17, 43, 0.8);
+  font-size: 16px;
+`;
+
+const CategoryTile = styled.button`
+  padding: 6px 12px;
+  border: none;
+  border-radius: 3px;
+  background: transparent;
+  margin-right: 6px;
+  text-transform: uppercase;
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 700;
+  background: #1C7BB0;
+  color: #fff;
 `;
