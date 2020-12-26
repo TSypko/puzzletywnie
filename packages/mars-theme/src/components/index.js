@@ -7,6 +7,8 @@ import Post from "./post";
 import Loading from "./loading";
 import Title from "./title";
 import PageError from "./page-error";
+import Hero from "./hero";
+import heroImage from "../assets/heroImage.jpg";
 
 /**
  * Theme is the root React component of our theme. The one we will export
@@ -23,6 +25,8 @@ const Theme = ({ state }) => {
       <Head>
         <meta name="description" content={state.frontity.description} />
         <html lang="en" />
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"/>
       </Head>
 
       {/* Add some global styles for the whole site, like body or a's. 
@@ -36,7 +40,11 @@ const Theme = ({ state }) => {
 
       {/* Add the main section. It renders a different component depending
       on the type of URL we are in. */}
+      <HeroContainer>
+        <Hero when={data.isArchive}/>
+      </HeroContainer>
       <Main>
+
         <Switch>
           <Loading when={data.isFetching} />
           <List when={data.isArchive} />
@@ -53,8 +61,7 @@ export default connect(Theme);
 const globalStyles = css`
   body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Poppins", sans-serif;
     box-sizing: border-box;
   }
   a,
@@ -71,6 +78,15 @@ const HeadContainer = styled.div`
   background-color: #000;
 `;
 
+const HeroContainer = styled.section`
+    width: 100%;
+    height: 50vh;
+    background: url(${heroImage});
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+`;
+
 const Main = styled.div`
   display: flex;
   justify-content: center;
@@ -79,4 +95,5 @@ const Main = styled.div`
     rgba(66, 174, 228, 0.1),
     rgba(66, 174, 228, 0)
   );
+  box-shadow: inset 0px 3px 7px 0px rgba(0,0,0,0.75);
 `;
