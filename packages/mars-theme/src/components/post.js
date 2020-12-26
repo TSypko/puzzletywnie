@@ -3,6 +3,7 @@ import { connect, styled } from "frontity";
 import Link from "./link";
 import List from "./list";
 import FeaturedMedia from "./featured-media";
+import Tile from "./tile";
 
 const Post = ({ state, actions, libraries }) => {
   // Get information about the current URL.
@@ -30,7 +31,7 @@ const Post = ({ state, actions, libraries }) => {
   // Load the post, but only if the data is ready.
   return data.isReady ? (
     <Container>
-      <div>
+      <Tile post>
         <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
 
         {/* Only display author and date on posts */}
@@ -49,7 +50,7 @@ const Post = ({ state, actions, libraries }) => {
             </DateWrapper>
           </div>
         )}
-      </div>
+
 
       {/* Look at the settings to see if we should include the featured image */}
       {state.theme.featured.showOnPost && (
@@ -61,6 +62,7 @@ const Post = ({ state, actions, libraries }) => {
       <Content>
         <Html2React html={post.content.rendered} />
       </Content>
+      </Tile>
     </Container>
   ) : null;
 };
@@ -68,16 +70,25 @@ const Post = ({ state, actions, libraries }) => {
 export default connect(Post);
 
 const Container = styled.div`
-  width: 800px;
+  width: 1000px;
   margin: 0;
   padding: 24px;
+  height: calc(100vh - 132px);
+
+  @media screen and (max-width: 560px) {
+    height: calc(100vh - 116px);
+  }
 `;
 
-const Title = styled.h1`
+const Title = styled.h2`
   margin: 0;
-  margin-top: 24px;
+  font-size: 36px;
   margin-bottom: 8px;
   color: rgba(12, 17, 43);
+
+  @media screen and (max-width: 560px) {
+    font-size: 24px;
+  }
 `;
 
 const StyledLink = styled(Link)`
@@ -114,8 +125,7 @@ const Content = styled.div`
 
   img {
     width: 100%;
-    object-fit: cover;
-    object-position: center;
+    z-index: 0;
   }
 
   figure {
