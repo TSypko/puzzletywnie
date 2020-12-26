@@ -55,6 +55,7 @@ const globalStyles = css`
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
       "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
   }
   a,
   a:visited {
@@ -67,7 +68,7 @@ const HeadContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: #1f38c5;
+  background-color: #000;
 `;
 
 const Main = styled.div`
