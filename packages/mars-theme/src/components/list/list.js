@@ -25,6 +25,7 @@ const List = ({ state }) => {
       )}
 
       {/* Iterate over the items of the list. */}
+      {/* {data.items.slice(1, data.items.length).map(({ type, id }) => { */}
       {data.items.map(({ type, id }) => {
         const item = state.source[type][id];
         // Render one Item component for each one.
