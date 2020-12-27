@@ -6,3 +6,7 @@ build/analyze/server-development.html
 build/bundling/chunks.module.json
 build/static/list.module.js
 build/static/puzzleblog.module.js
+build/server.js
+
+.vercel
+vercel.json
