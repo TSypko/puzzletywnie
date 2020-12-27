@@ -3,7 +3,7 @@ import { connect, styled } from "frontity";
 import Link from "./link";
 import Nav from "./nav";
 import MobileMenu from "./menu";
-import logo from "../assets/puzzleicon.png";
+import logo from "../assets/puzzleIcon.png";
 
 const Header = ({ state }) => {
   return (
