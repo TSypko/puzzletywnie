@@ -2,7 +2,7 @@ const settings = {
   "name": "puzzleblog",
   "state": {
     "frontity": {
-      "url": "server543046.nazwa.pl/wordpress/wpn_bluepuzzleblog/",
+      "url": "http://bluepuzzleblog.server543046.nazwa.pl/",
       "title": "Blue Puzzle Blog",
       "description": "Blog dla fanów puzzli"
     }
@@ -37,7 +37,7 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "url": "http://puzzleblog.local/",
+          "url": "https://server543046.nazwa.pl/wordpress/wpn_bluepuzzleblog/",
           "params": {
             "per_page": 5
           },
