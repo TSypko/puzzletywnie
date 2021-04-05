@@ -14,16 +14,16 @@ const settings = {
         "theme": {
           "menu": [
             [
-              "Home",
+              "Start",
               "/"
             ],
             [
-              "About",
-              "/about/"
+              "O mnie",
+              "/omnie/"
             ],
             [
-              "Contact",
-              "/contact/"
+              "Kontakt",
+              "/kontakt/"
             ],
           ],
           "featured": {
