@@ -12,6 +12,7 @@ const Header = ({ state }) => {
         <StyledLink link="/">
           <Image src={logo} alt="logo" />
           <Title>{state.frontity.title}</Title>
+          <SubTitle>{state.frontity.description}</SubTitle>
         </StyledLink>
         <MobileMenu />
         <Nav />
@@ -47,6 +48,17 @@ const Title = styled.h1`
 
   @media (max-width: 380px) {
         font-size: 20px;
+    }
+`;
+
+const SubTitle = styled.h2`
+  margin: 0 0 0 48px;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  display: none;
+
+  @media (min-width: 768px) {
+      display: block;
     }
 `;
 
