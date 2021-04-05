@@ -39,7 +39,7 @@ const settings = {
         "source": {
           "url": "https://ssl-puzzletywnie.ovh/",
           "params": {
-            "per_page": 2
+            "per_page": 3
           },
         }
       }
@@ -49,6 +49,18 @@ const settings = {
       state: {
         googleTagManagerAnalytics: {
           containerId: "GTM-PT3PVDQ",
+        },
+      },
+    },
+    {
+      name: "@frontity/google-analytics",
+      state: {
+        googleAnalytics: {
+          trackingId: "UA-193822795-1",
+        },
+        analytics: {
+          pageviews: { googleAnalytics: true },
+          events: { googleAnalytics: true }
         },
       },
     },
