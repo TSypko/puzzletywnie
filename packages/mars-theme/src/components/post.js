@@ -28,11 +28,13 @@ const Post = ({ state, actions, libraries }) => {
     List.preload();
   }, []);
 
+
+
   // Load the post, but only if the data is ready.
   return data.isReady ? (
     <Container>
       <Tile post>
-        <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+        <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} onClick={actions.analytics.event({name: "tytul wpisu", payload: {category: "wpisy", label: post.title.rendered}})}/>
 
         {/* Only display author and date on posts */}
         {data.isPost && (
