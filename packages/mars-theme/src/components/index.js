@@ -8,6 +8,7 @@ import Loading from "./loading";
 import Title from "./title";
 import PageError from "./page-error";
 import heroImage from "../assets/heroImage.jpg";
+import logo from "../assets/puzzleIcon.png";
 
 const Theme = ({ state }) => {
   const data = state.source.get(state.router.link);
@@ -19,6 +20,7 @@ const Theme = ({ state }) => {
         <meta name="description" content={state.frontity.description} />
         <html lang="en" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link rel="icon" href={logo} />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
       </Head>
       <Global styles={globalStyles} />
