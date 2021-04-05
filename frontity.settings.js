@@ -39,10 +39,18 @@ const settings = {
         "source": {
           "url": "https://ssl-puzzletywnie.ovh/",
           "params": {
-            "per_page": 5
+            "per_page": 2
           },
         }
       }
+    },
+    {
+      name: "@frontity/google-tag-manager-analytics",
+      state: {
+        googleTagManagerAnalytics: {
+          containerId: "GTM-PT3PVDQ",
+        },
+      },
     },
     "@frontity/tiny-router",
     "@frontity/html2react"
