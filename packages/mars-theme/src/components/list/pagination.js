@@ -12,15 +12,22 @@ import Link from "../link";
  */
 const Pagination = ({ state, actions }) => {
   // Get the total posts to be displayed based for the current link
-  const { next, previous } = state.source.get(state.router.link);
+  const { next, previous, page } = state.source.get(state.router.link);
 
   // Pre-fetch the the next page if it hasn't been fetched yet.
   useEffect(() => {
     if (next) actions.source.fetch(next);
   }, []);
-console.log(previous)
+
   return (
-    <PaginationContainer previous={previous} next={next}>
+    <PaginationContainer>
+       {/* If there's a previous page, render this link */}
+       {previous && (
+        <Link link={previous}>
+          <SwitchPageButton >← Nowsze wpisy {previous === "/" ? "(Strona 1)" : `Strona (${parseInt(previous.substring(6, previous.length), 10)})`}</SwitchPageButton>
+        </Link>
+      )}
+     <PageLabel>Strona {page}</PageLabel>
       {/* If there's a next page, render this link */}
       {next && (
         <Link link={next}>
@@ -28,12 +35,7 @@ console.log(previous)
         </Link>
       )}
 
-      {/* If there's a previous page, render this link */}
-      {previous && (
-        <Link link={previous}>
-          <SwitchPageButton >← Nowsze wpisy {previous === "/" ? "(Strona 1)" : `Strona (${parseInt(previous.substring(6, previous.length), 10)})`}</SwitchPageButton>
-        </Link>
-      )}
+     
     </PaginationContainer>
   );
 };
@@ -46,16 +48,8 @@ export default connect(Pagination);
 
 const PaginationContainer = styled.div`
   display: flex;
-  justify-content: space-between;
   margin-bottom: 32px;
-
-  ${({ previous }) => previous && css`
-     justify-content: flex-start;
-            `}
-
-  ${({ next }) => next && css`
-     justify-content: flex-end;
-            `}
+  justify-content: space-between;
 `;
 
 const SwitchPageButton = styled.button`
@@ -71,3 +65,7 @@ const SwitchPageButton = styled.button`
   color: #fff;
   cursor: pointer;
 `;
+const PageLabel = styled(SwitchPageButton)`
+  align-self: center;
+  cursor: unset;
+`
