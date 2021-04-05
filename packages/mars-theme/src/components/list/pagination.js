@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { connect, styled } from "frontity";
+import { connect, styled, css } from "frontity";
 import Link from "../link";
 
 /**
@@ -18,20 +18,20 @@ const Pagination = ({ state, actions }) => {
   useEffect(() => {
     if (next) actions.source.fetch(next);
   }, []);
-
+console.log(previous)
   return (
-    <PaginationContainer>
+    <PaginationContainer previous={previous} next={next}>
       {/* If there's a next page, render this link */}
       {next && (
         <Link link={next}>
-          <Text>← Starsze wpisy (Strona {parseInt(next.substring(6, next.length), 10)})</Text>
+          <SwitchPageButton>Starsze wpisy (Strona {parseInt(next.substring(6, next.length), 10)}) →</SwitchPageButton>
         </Link>
       )}
 
       {/* If there's a previous page, render this link */}
       {previous && (
         <Link link={previous}>
-          <Text>Nowsze wpisy {previous === "/" ? "(Strona 1)" : `Strona (${parseInt(previous.substring(6, previous.length), 10)})`} →</Text>
+          <SwitchPageButton >← Nowsze wpisy {previous === "/" ? "(Strona 1)" : `Strona (${parseInt(previous.substring(6, previous.length), 10)})`}</SwitchPageButton>
         </Link>
       )}
     </PaginationContainer>
@@ -47,9 +47,27 @@ export default connect(Pagination);
 const PaginationContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-bottom: 32px;
+
+  ${({ previous }) => previous && css`
+     justify-content: flex-start;
+            `}
+
+  ${({ next }) => next && css`
+     justify-content: flex-end;
+            `}
 `;
 
-const Text = styled.em`
-  display: inline-block;
-  margin-top: 16px;
+const SwitchPageButton = styled.button`
+  padding: 6px 12px;
+  border: none;
+  border-radius: 3px;
+  background: transparent;
+  margin-right: 6px;
+  text-transform: uppercase;
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 700;
+  background: #1C7BB0;
+  color: #fff;
+  cursor: pointer;
 `;
