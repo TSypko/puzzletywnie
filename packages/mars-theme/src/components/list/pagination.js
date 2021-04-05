@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { connect, styled, css } from "frontity";
+import { connect, styled } from "frontity";
 import Link from "../link";
 
 /**
