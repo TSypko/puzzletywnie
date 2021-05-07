@@ -1,5 +1,6 @@
 import React from "react";
-import { connect, styled } from "frontity";
+import { connect } from "frontity";
+import styled from "styled-components";
 import Link from "../link";
 import FeaturedMedia from "../featured-media";
 import Tile from "../tile";
@@ -18,7 +19,6 @@ const Item = ({ state, item }) => {
   const categories = state.source.category;
   const category = Array.from(item.categories);
   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-  const weekday = (date.toLocaleDateString(undefined, { weekday: "long" }))
 
   return (
     <Tile>
@@ -41,11 +41,8 @@ const Item = ({ state, item }) => {
           </StyledLink>
         )}
         <PublishDate>
-          {" "}
-          {weekday === "wtorek"
-            ? "we"
-            : "w"}
-          {" "}<b>{date.toLocaleDateString(undefined, options)}</b>
+          {" 🧩 "}
+          <b>{date.toLocaleDateString("pl-PL", options)}</b>
         </PublishDate>
 
       </div>
@@ -79,16 +76,39 @@ const ItemContent = styled.div`
 
 const Title = styled.h2`
   font-size: 2rem;
-  color: rgba(12, 17, 43);
+  color: ${({ theme }) => theme.colors.Haiti};
   margin: 0;
   padding-top: 24px;
   padding-bottom: 8px;
+  
+  &:hover {
+    color: ${({ theme }) => theme.colors.Blumine};
+    cursor: pointer;
+    transition: ${({ theme }) => theme.transitions.fast};
+  }
+
+  &:active {
+    filter: brightness(100%);
+    color: ${({ theme }) => theme.colors.Matisse};
+    transition: ${({ theme }) => theme.transitions.none};
+  }
 `;
 
-
 const AuthorName = styled.span`
-  color: rgba(12, 17, 43, 0.9);
+  color: ${({ theme }) => theme.colors.Haiti};
   font-size: 0.9em;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.Blumine};
+    cursor: pointer;
+    transition: ${({ theme }) => theme.transitions.fast};
+  }
+
+  &:active {
+    filter: brightness(100%);
+    color: ${({ theme }) => theme.colors.Matisse};
+    transition: ${({ theme }) => theme.transitions.none};
+  }
 `;
 
 const StyledLink = styled(Link)`
@@ -96,13 +116,13 @@ const StyledLink = styled(Link)`
 `;
 
 const PublishDate = styled.span`
-  color: rgba(12, 17, 43, 0.9);
+  color: ${({ theme }) => theme.colors.Haiti};
   font-size: 0.9em;
 `;
 
 const Excerpt = styled.div`
   line-height: 1.5;
-  color: rgba(12, 17, 43, 0.8);
+  color: ${({ theme }) => theme.colors.Haiti};
   font-size: 16px;
 `;
 
@@ -115,6 +135,18 @@ const CategoryTile = styled.button`
   text-transform: uppercase;
   font-family: 'Segoe UI', sans-serif;
   font-weight: 700;
-  background: #1C7BB0;
-  color: #fff;
+  background: ${({ theme }) => theme.colors.Matisse};
+  color: ${({ theme }) => theme.colors.White};
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.Blumine};
+    cursor: pointer;
+    transition: ${({ theme }) => theme.transitions.medium};
+  }
+
+  &:active {
+    background: ${({ theme }) => theme.colors.Matisse};
+    filter: brightness(100%);
+    transition: ${({ theme }) => theme.transitions.none};
+  }
 `;
