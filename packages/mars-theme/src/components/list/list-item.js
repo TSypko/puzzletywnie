@@ -63,7 +63,7 @@ const Item = ({ state, item }) => {
       <p>
         {category.map(id => {
 
-          return <CategoryTile>{categories[id].name}</CategoryTile>})}
+          return <CategoryTile key={id}>{categories[id].name}</CategoryTile>})}
       </p>
       </ItemContent>
     </Tile>
