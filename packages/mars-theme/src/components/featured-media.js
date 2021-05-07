@@ -1,8 +1,8 @@
 import React from "react";
-import { connect, styled } from "frontity";
+import { connect, styled, css } from "frontity";
 import Image from "@frontity/components/image";
 
-const FeaturedMedia = ({ state, id }) => {
+const FeaturedMedia = ({ state, id, post }) => {
   const media = state.source.attachment[id];
 
   if (!media) return null;
@@ -26,6 +26,7 @@ const FeaturedMedia = ({ state, id }) => {
         alt={media.title.rendered}
         src={media.source_url}
         srcSet={srcset}
+        post={post}
       />
     </Container>
   );
@@ -42,4 +43,8 @@ const StyledImage = styled(Image)`
   height: 100%;
   width: 100%;
   object-fit: cover;
+
+  ${({ post }) => post && css`
+  object-fit: contain;
+            `}
 `;
