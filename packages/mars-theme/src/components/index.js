@@ -1,5 +1,6 @@
 import React from "react";
 import { Global, css, connect, styled, Head } from "frontity";
+import { ThemeProvider } from "styled-components";
 import Switch from "@frontity/components/switch";
 import Header from "./header";
 import List from "./list";
@@ -9,6 +10,7 @@ import Title from "./title";
 import PageError from "./page-error";
 import heroImage from "../assets/heroImage.jpg";
 import logo from "../assets/puzzleIcon.png";
+import { theme } from '../theme';
 
 const Theme = ({ state }) => {
   const data = state.source.get(state.router.link);
@@ -23,6 +25,7 @@ const Theme = ({ state }) => {
         <link rel="icon" href={logo} />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
       </Head>
+      <ThemeProvider theme={theme}>
       <Global styles={globalStyles} />
       <HeadContainer>
         <Header />
@@ -37,6 +40,7 @@ const Theme = ({ state }) => {
           </Switch>
         </Main>
       </MainContainer>
+      </ThemeProvider>
     </>
   );
 };
