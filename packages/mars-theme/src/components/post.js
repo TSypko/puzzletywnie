@@ -28,42 +28,49 @@ const Post = ({ state, actions, libraries }) => {
     List.preload();
   }, []);
 
-
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const weekday = (date.toLocaleDateString(undefined, { weekday: "long" }))
 
   // Load the post, but only if the data is ready.
   return data.isReady ? (
     <Container>
       <Tile post>
-        <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} onClick={actions.analytics.event({name: "tytul wpisu", payload: {category: "wpisy", label: post.title.rendered}})}/>
+        <FeaturedMedia post={post} id={post.featured_media} />
+        <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+        <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} onClick={() => actions.analytics.event({ name: "tytul wpisu", payload: { category: "wpisy", label: post.title.rendered } })} />
 
         {/* Only display author and date on posts */}
         {data.isPost && (
           <div>
+
             {author && (
               <StyledLink link={author.link}>
                 <Author>
-                  By <b>{author.name}</b>
+                  przez <b>{author.name}</b>
                 </Author>
               </StyledLink>
             )}
             <DateWrapper>
               {" "}
-              on <b>{date.toDateString()}</b>
+              {weekday === "wtorek"
+                ? "we"
+                : "w"}
+              {" "}<b>{date.toLocaleDateString(undefined, options)}</b>
             </DateWrapper>
           </div>
         )}
 
 
-      {/* Look at the settings to see if we should include the featured image */}
-      {state.theme.featured.showOnPost && (
-        <FeaturedMedia id={post.featured_media} />
-      )}
+        {/* Look at the settings to see if we should include the featured image */}
+        {state.theme.featured.showOnPost && (
+          <FeaturedMedia id={post.featured_media} />
+        )}
 
-      {/* Render the content using the Html2React component so the HTML is processed
+        {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
-      <Content>
-        <Html2React html={post.content.rendered} />
-      </Content>
+        <Content>
+          <Html2React html={post.content.rendered} />
+        </Content>
       </Tile>
     </Container>
   ) : null;
